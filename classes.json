@@ -1,0 +1,30 @@
+{
+	"Ecole": {
+		"type": "object",
+		"attributs": {
+			"nom": {
+				"type": "string"
+			},
+			"adresse": {
+				"type": "string"
+			}
+		}
+	},
+	"Classe": {
+		"type": "object",
+		"attributs": {
+			"id":{
+				"type":"integer",
+				"isPrimary": true
+			},
+			"departement":{
+				"type":"string"
+
+			},
+			"name": {
+				"type":"string"
+
+			}
+		}
+	}
+}

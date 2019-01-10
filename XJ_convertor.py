@@ -49,14 +49,14 @@ def XJ_convertor(argv):
     print(check_command)
 
     if check_command == True:
-        """ if fileType == 'json':
+        if fileType == 'json':
             if cmd.url_or_local(urlFluxHTTP, inputFile) == 'local':
                 data_JSON = validation_json.load_json_local_file(inputFile)
             elif cmd.url_or_local(urlFluxHTTP, inputFile) == 'url':
                 data_JSON = validation_json.load_json_remote_file(urlFluxHTTP)
             
             dict = extraction.extraction_data_json(data_JSON)
-            generation_svg.generate_svg(outputFile, dict)"""
+            generation_svg.generate_svg(outputFile, dict)
         print(fileType)
 
         if fileType == 'xml':

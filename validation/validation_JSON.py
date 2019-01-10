@@ -1,12 +1,22 @@
-# importation du bibliotheque json
-import json 
+import json
+import requests
 
-def json_validator(data):
+
+def load_json_local_file(file):
     try:
-        json.loads(data)  # la fonction json.loads() permet de faire la validation du fichier json
-        return True
+        with open(file, "r") as f:
+            data = json.load(f)
+        return data
     except ValueError as error:
-        print("invalid json: %s" % error)
-        return False
+        print("fichier json invalide: %s" % error)
 
-print(json_validator("../classes.json")) #print True
+
+def load_json_remote_file(url):
+    try:
+        response = requests.get(url)
+        data = json.load(response.text)
+        return data
+    except requests.exceptions.HTTPError as error1:
+        print("Erreur HTTP: %s" % error1)
+    except ValueError as error2:
+        print("fichier json invalide: %s" % error2)

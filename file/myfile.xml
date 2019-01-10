@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+    <modeleEA> 
+        <entities>
+            <entity>
+                <name>Employe</name>
+                <type>Object</type>
+                <required>true</required>
+                <attributs>
+                    <attribut>idEmp</attribut>
+                    <attribut>prenom</attribut>
+                    <attribut>nom</attribut>
+                </attributs>
+            </entity>
+
+            <entity>
+                <name>Projet</name>
+                <type>Object</type>
+                <required>true</required>
+                <attributs>
+                    <attribut>idProjet</attribut>
+                    <attribut>nomProjet</attribut>
+                </attributs>
+            </entity>
+
+            <entity>
+                <name>Branche</name>
+                <type>Object</type>
+                <required>true</required>
+                <attributs>
+                    <attribut>idBranche</attribut>
+                    <attribut>nomBranche</attribut>
+                </attributs>
+            </entity>
+        </entities>
+
+        <associations>
+            <association>
+                <name_assoc>Membre</name_assoc>
+                <entityDeb>Employe</entityDeb>
+                <cardDeb>1N</cardDeb>
+                <entityFin>Projet</entityFin>
+                <cardFin>1N</cardFin>
+            </association>
+            <association>
+                <name_assoc>Destination</name_assoc>
+                <nameDeb>Branche</nameDeb>
+                <cardDeb>1N</cardDeb>
+                <nameFin>Projet</nameFin>
+                <cardFin>1N</cardFin>
+            </association>
+        </associations>
+    </modeleEA>

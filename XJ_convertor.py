@@ -4,8 +4,8 @@ import xml.etree.ElementTree as ET
 
 
 from cmd_config import cmd
-from validation import validation_json, validation_xml
-from extraction import extraction
+from validation import validation_xml
+from extraction import extraction_xml
 from generation import generation_svg
 
 
@@ -49,15 +49,6 @@ def XJ_convertor(argv):
     print(check_command)
 
     if check_command == True:
-        if fileType == 'json':
-            if cmd.url_or_local(urlFluxHTTP, inputFile) == 'local':
-                data_JSON = validation_json.load_json_local_file(inputFile)
-            elif cmd.url_or_local(urlFluxHTTP, inputFile) == 'url':
-                data_JSON = validation_json.load_json_remote_file(urlFluxHTTP)
-            
-            dict = extraction.extraction_data_json(data_JSON)
-            generation_svg.generate_svg(outputFile, dict)
-        print(fileType)
 
         if fileType == 'xml':
             if cmd.url_or_local(urlFluxHTTP, inputFile) == 'local':

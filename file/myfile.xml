@@ -36,17 +36,17 @@
         <associations>
             <association>
                 <name_assoc>Membre</name_assoc>
-                <entityDeb>Employe</entityDeb>
                 <cardDeb>1N</cardDeb>
-                <entityFin>Projet</entityFin>
+                <entityDeb>Employe</entityDeb>
                 <cardFin>1N</cardFin>
+                <entityFin>Projet</entityFin>
             </association>
             <association>
                 <name_assoc>Destination</name_assoc>
-                <nameDeb>Branche</nameDeb>
                 <cardDeb>1N</cardDeb>
-                <nameFin>Projet</nameFin>
+                <entityFin>Projet</entityFin>
                 <cardFin>1N</cardFin>
+                <entityDeb>Branche</entityDeb>
             </association>
         </associations>
     </modeleEA>

@@ -1,0 +1,5 @@
+Membre, 1N Employe , 1N Projet 
+Destination, 1N Branche , 1N Projet 
+Employe: idEmp, prenom, nom, 
+Projet: idProjet, nomProjet, 
+Branche: idBranche, nomBranche, 

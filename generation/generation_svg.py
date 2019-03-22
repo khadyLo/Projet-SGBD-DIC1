@@ -1,6 +1,8 @@
-﻿#Importation du module os
+# coding=utf-8
+
 import os
-#Definition d'une fonction prenant en parametre le fichier de sortie,les dictionnaires (entity et assoc)
+
+
 def generate_mcd(outputfile, dictEntity, dictAssoc):
     # Recupération du nom fichier de sortie et création du fichier .mcd
     out = outputfile.replace(".svg", ".mcd")
@@ -26,5 +28,8 @@ def generate_mcd(outputfile, dictEntity, dictAssoc):
     return out
 
 # génération du fichier .svg grâce au module mocodo
-def generate_svg(file):
-    os.system("mocodo --input " + file)
+def generate_svg_json(file):
+    os.system("mocodo --input file/data_json.mcd")
+
+def generate_svg_xml(file):
+    os.system("mocodo --input file/data_xml.mcd")

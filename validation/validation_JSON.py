@@ -17,12 +17,13 @@ def load_json_local_file(file):
 #Definition d'une fonction prenant en parametre l'url
 def load_json_remote_file(url):
     try:
+        print(url)
 #Recuperation du fichier se trouvant dans l'url et stockage dans le variable(response) 
         response = requests.get(url)
 #Chargement du contenu (response.text) dans une variable (data)
-        data = json.load(response.text)
-#Data en retour
+        data = json.loads(response.text)
         return data
+#Data en retour
     except requests.exceptions.HTTPError as error1:
 #erreur de l'url
         print("Erreur HTTP: %s" % error1)

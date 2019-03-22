@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "Etudiant": {
+      "type": "object",
+      "required": true,
+      "attributs": {
+        "No Etudiant": {
+          "type": "string",
+          "isPrimary": true
+        },
+        "Nom": {
+          "type": "string",
+          "required": true
+        },
+        "Prenom": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "projet": {
+      "type": "object",
+      "required": true,
+      "attributs": {
+        "No projet": {
+          "type": "string",
+          "required": true
+        },
+        "Titre": {
+          "type": "string",
+          "required": true
+        } 
+      }     
+    }
+  },
+  "associations": {
+    "appartenance": {
+      "Etudiant": "1N",
+      "projet": "1N"
+  }
+}
+}

@@ -1,14 +1,17 @@
+# coding=utf-8
+
 # Importation des modules
 import getopt
 import os
 import sys
 import requests
 import xml.etree.ElementTree as ET
+import urllib
 
 # Importation des modules créés
 from cmd_config import cmd
 from validation import validation_json, validation_xml
-from extraction import extraction
+from extraction import extraction_json, extraction_xml
 from generation import generation_svg
 
 
@@ -68,7 +71,7 @@ def XJ_convertor(argv):
                 data_JSON = validation_json.load_json_remote_file(urlFluxHTTP)
             
             # Extraction des entités et des relations enregistrées dans des dictionnaires
-            dictEntity, dictAssoc = extraction.extraction_data_json(data_JSON)
+            dictEntity, dictAssoc = extraction_json.extraction_data_json(data_JSON)
             # Affichage du modèle en présence de l'option -t 
             if outputScan == True:
                 print("Affichage des entités et associations")
@@ -79,7 +82,7 @@ def XJ_convertor(argv):
                 print("\n\n\n")
             # génération du fichier .svg à partir des dictionnaires des entités et des associations
             file = generation_svg.generate_mcd(outputFile, dictEntity, dictAssoc)
-            generation_svg.generate_svg(file)
+            generation_svg.generate_svg_json(file)
 
         # Si le type de fichier est xml
         if fileType == 'xml':
@@ -89,12 +92,12 @@ def XJ_convertor(argv):
                 tree = ET.parse(inputFile)
                 root = tree.getroot()
             elif cmd.url_or_local(urlFluxHTTP, inputFile) == 'url':
-                response = requests.get(urlFluxHTTP)
+                ''' response = requests.get(urlFluxHTTP) '''
                 # Recupération du contenu du fichier
-                tree = ET.parse(response.text) 
+                tree = ET.parse(urllib.request.urlopen(urlFluxHTTP)) 
                 root = tree.getroot()
             # Extraction des entités et des relations enregistrées dans des dictionnaires
-            dictEntity, dictAssoc = extraction.extraction_data_xml(root)
+            dictEntity, dictAssoc = extraction_xml.extraction_data_xml(root)
             # Affichage du modèle en présence de l'option -t
             if outputScan == True:
                 print("Affichage des entités et associations")
@@ -105,7 +108,7 @@ def XJ_convertor(argv):
                 print("\n\n\n")
             # génération du fichier .svg à partir des dictionnaires des entités et des associations
             file = generation_svg.generate_mcd(outputFile, dictEntity, dictAssoc)
-            generation_svg.generate_svg(file)
+            generation_svg.generate_svg_xml(file)
 
 
 if __name__ == '__main__':

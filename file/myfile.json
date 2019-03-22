@@ -1,10 +1,10 @@
 {
   "entities": {
-    "Ecrivain": {
+    "Etudiant": {
       "type": "object",
       "required": true,
       "attributs": {
-        "No Ecrivain": {
+        "No Etudiant": {
           "type": "string",
           "isPrimary": true
         },
@@ -18,60 +18,25 @@
         }
       }
     },
-    "Livre": {
+    "projet": {
       "type": "object",
       "required": true,
       "attributs": {
-        "No Livre": {
+        "No projet": {
           "type": "string",
           "required": true
         },
         "Titre": {
           "type": "string",
           "required": true
-        },
-        "Annee": {
-          "type": "integer",
-          "required": true
-        },
-        "Prix": {
-          "type": "integer",
-          "required": true
-        }
-      }
-    },
-    "Client": {
-      "type": "object",
-      "required": true,
-      "attributs": {
-        "Email": {
-          "type": "string",
-          "isPrimary": true
-        },
-        "Nom": {
-          "type": "string",
-          "required": true
-        },
-        "Prenom": {
-          "type": "string",
-          "required": true
-        },
-        "Telephone": {
-          "type": "string",
-          "required": true
-        }
-      }
+        } 
+      }     
     }
   },
-
   "associations": {
     "appartenance": {
-      "Ecrivain": "1N",
-      "Client": "1N"
-    },
-    "avoir": {
-      "Livre": "1N",
-      "Client": "1N"
-    }
+      "Etudiant": "1N",
+      "projet": "1N"
   }
+}
 }
